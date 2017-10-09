@@ -7,6 +7,8 @@ import time
 ###########################################################################
 # Class MyFrame1
 ###########################################################################
+
+
 class MyFrame1 (wx.Frame):
     res = []
     creatvar = locals()
@@ -36,6 +38,21 @@ class MyFrame1 (wx.Frame):
         self.labRatio = wx.StaticText(self, wx.ID_ANY, u"1234")
         gbSizer1.Add(self.labRatio, span=(1, 1),
                      pos=(2, 3), flag=wx.EXPAND, border=3)
+        for i in range(1, 6):
+            self.creatvar['self.labQues' +
+                          str(i)] = wx.StaticText(self, wx.ID_ANY, u"")
+            gbSizer1.Add(self.creatvar['self.labQues' + str(i)], span=(1, 5),
+                         pos=(i + 2, 0), flag=wx.ALIGN_CENTER_VERTICAL, border=3)
+            self.creatvar['self.texAns' +
+                          str(i)] = wx.TextCtrl(self, i - 1, wx.EmptyString)
+            gbSizer1.Add(self.creatvar['self.texAns' + str(i)],
+                         pos=(i + 2, 6), flag=wx.ALIGN_CENTER_VERTICAL)
+            self.creatvar['self.texAns' + str(i)].Disable()
+            self.creatvar['self.labCor' +
+                          str(i)] = wx.StaticText(self, i + 4, u"")
+            gbSizer1.Add(self.creatvar['self.labCor' + str(i)],
+                         pos=(i + 2, 7), flag=wx.ALIGN_CENTER_VERTICAL)
+
         self.btnNext = wx.Button(self, wx.ID_ANY, u"再来5题")
         gbSizer1.Add(self.btnNext, span=(1, 1), pos=(9, 3))
 
@@ -49,10 +66,34 @@ class MyFrame1 (wx.Frame):
         self.Layout()
 
         self.Centre(wx.BOTH)
+        # 添加事件
+        self.btnStart.Bind(wx.EVT_BUTTON, self.btnStartOnButtonClick)
+        for i in range(1, 6):
+            self.creatvar['self.texAns' +
+                          str(i)].Bind(wx.EVT_TEXT_ENTER, self.texAnsOnTextEnter)
+        self.btnNext.Bind(wx.EVT_BUTTON, self.btnNextOnButtonClick)
+        self.btnPause.Bind(wx.EVT_BUTTON, self.btnPauseOnButtonClick)
+        self.btnEnd.Bind(wx.EVT_BUTTON, self.btnEndOnButtonClick)
 
-        
     def __del__(self):
         pass
+
+    def btnStartOnButtonClick(self, event):
+        print 'start'
+
+    def texAnsOnTextEnter(self, event):
+        print 'tex'
+
+    def btnNextOnButtonClick(self, event):
+        print 'next'
+
+    def btnPauseOnButtonClick(self, event):
+        print 'pause'
+
+    def btnEndOnButtonClick(self, event):
+        print 'end'
+
+
 app = wx.App(False)
 frame = MyFrame1(None)
 frame.Show(True)
