@@ -75,11 +75,23 @@ class MyFrame1 (wx.Frame):
         self.btnPause.Bind(wx.EVT_BUTTON, self.btnPauseOnButtonClick)
         self.btnEnd.Bind(wx.EVT_BUTTON, self.btnEndOnButtonClick)
 
+
+
     def __del__(self):
         pass
 
     def btnStartOnButtonClick(self, event):
-        print 'start'
+        for i in range(1, 6):
+            self.creatvar['self.texAns' + str(i)].Enable()
+            tmp = initFix()
+            self.creatvar['self.labQues' +
+                          str(i)].SetLabel("".join(printFix(tmp)))
+            PostfixExp = changeToPostfix(tmp)
+            self.res.append(PostfixExp)
+        self.eve.set()
+        t = threading.Thread(target=self.stopwatch, name='timer')
+        t.start()
+        self.btnStart.Disable()
 
     def texAnsOnTextEnter(self, event):
         print 'tex'
@@ -88,10 +100,34 @@ class MyFrame1 (wx.Frame):
         print 'next'
 
     def btnPauseOnButtonClick(self, event):
-        print 'pause'
+        if self.btnPause.GetLabel() == u'暂停':
+            self.eve.clear()
+            self.btnPause.SetLabel('开始')
+        else:
+            self.eve.set()
+            self.btnPause.SetLabel('暂停')
 
     def btnEndOnButtonClick(self, event):
-        print 'end'
+        self.eve.clear()
+
+    def stopwatch(self):#计时器
+        second = 0
+        minute = 0
+        hour = 0
+        while 1:
+            if not self.eve.isSet():
+                continue
+            second += 1
+            time.sleep(1)
+            if second == 60:
+                minute += 1
+                second = 0
+                if minute == 60:
+                    hour += 1
+                    minute = 0
+                    second = 0
+            ntime = "%d:%d:%d" % (hour, minute, second)
+            self.labTime1.SetLabel(ntime)
 
 
 app = wx.App(False)
