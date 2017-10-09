@@ -4,6 +4,7 @@ import wx.xrc
 from calculate import *
 import threading
 import time
+from iohandle import *
 ###########################################################################
 # Class MyFrame1
 ###########################################################################
@@ -94,10 +95,35 @@ class MyFrame1 (wx.Frame):
         self.btnStart.Disable()
 
     def texAnsOnTextEnter(self, event):
-        print 'tex'
+        tex = event.GetEventObject()
+        value = tex.GetValue()
+        index = tex.GetId()
+        cor = CalculatePostfix(self.res[index])
+        if value == str(cor):
+            self.creatvar['self.labCor' + str(index + 1)].SetLabel('正确')
+            self.ratio[0] += 1
+            self.ratio[1] += 1
+            self.labRatio.SetLabel(
+                '正确|总数:' + str(self.ratio[0]) + '|' + str(self.ratio[1]))
+        else:
+            self.creatvar['self.labCor' +
+                          str(index + 1)].SetLabel('错误,正确答案是' + str(cor))
+            self.ratio[1] += 1
+            self.labRatio.SetLabel(
+                '正确|总数:' + str(self.ratio[0]) + '|' + str(self.ratio[1]))
+        tex.Disable()
 
     def btnNextOnButtonClick(self, event):
-        print 'next'
+        self.res = []
+        for i in range(1, 6):
+            tmp = initFix()
+            self.creatvar['self.labQues' +
+                          str(i)].SetLabel("".join(printFix(tmp)))
+            PostfixExp = changeToPostfix(tmp)
+            self.res.append(PostfixExp)
+            self.creatvar['self.texAns' + str(i)].Enable()
+            self.creatvar['self.labCor' + str(i)].SetLabel('')
+            self.creatvar['self.texAns' + str(i)].SetValue('')
 
     def btnPauseOnButtonClick(self, event):
         if self.btnPause.GetLabel() == u'暂停':
@@ -109,6 +135,12 @@ class MyFrame1 (wx.Frame):
 
     def btnEndOnButtonClick(self, event):
         self.eve.clear()
+        writeFile(regularizeData(self.ratio))
+        dlg = wx.MessageDialog(None, u"您的记录已保存！", u"感谢使用",
+                               wx.OK | wx.ICON_QUESTION)
+        if dlg.ShowModal() == wx.ID_OK:
+            self.Close(True)
+        dlg.Destroy()
 
     def stopwatch(self):#计时器
         second = 0
