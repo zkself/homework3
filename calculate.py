@@ -79,6 +79,7 @@ def changeToPostfix(exp):#转换后缀表达式
 
 
 def CalculatePostfix(exp):#计算后缀表达式
+    stack=[]
     for i in range(len(exp)):
         if type(exp[i]) == int:
             stack.append(exp[i])
