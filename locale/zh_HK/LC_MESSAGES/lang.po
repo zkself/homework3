@@ -1,0 +1,53 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-10-10 10:21+ÖÐ¹ú±ê×¼Ê±¼ä\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+msgid "开始答题"
+msgstr "開始答題"
+
+msgid "时间:"
+msgstr "時間:"
+
+msgid "再来五题"
+msgstr "再來五題"
+
+msgid "暂停"
+msgstr "暫停"
+
+msgid "结束答题"
+msgstr "結束答題"
+
+msgid "正确|总数"
+msgstr "正確|總數"
+
+msgid "当前无记录"
+msgstr "當前無記錄"
+
+msgid "正确"
+msgstr "正確"
+
+msgid "错误,正确答案是"
+msgstr "錯誤,正確答案是"
+
+msgid "开始"
+msgstr "開始"
+
+msgid "您的记录已保存"
+msgstr "您的記錄已保存"
+
+msgid "感谢使用"
+msgstr "感謝使用"
+
+
