@@ -36,7 +36,7 @@ class MyFrame1 (wx.Frame):
         self.labTime1 = wx.StaticText(self, wx.ID_ANY, u"0:0:0")
         gbSizer1.Add(self.labTime1, span=(1, 1),
                      pos=(2, 1), flag=wx.EXPAND, border=3)
-        self.labRatio = wx.StaticText(self, wx.ID_ANY, u"1234")
+        self.labRatio = wx.StaticText(self, wx.ID_ANY, u"")
         gbSizer1.Add(self.labRatio, span=(1, 1),
                      pos=(2, 3), flag=wx.EXPAND, border=3)
         for i in range(1, 6):
@@ -54,7 +54,7 @@ class MyFrame1 (wx.Frame):
             gbSizer1.Add(self.creatvar['self.labCor' + str(i)],
                          pos=(i + 2, 7), flag=wx.ALIGN_CENTER_VERTICAL)
 
-        self.btnNext = wx.Button(self, wx.ID_ANY, u"再来5题")
+        self.btnNext = wx.Button(self, wx.ID_ANY, u"再来五题")
         gbSizer1.Add(self.btnNext, span=(1, 1), pos=(9, 3))
 
         self.btnPause = wx.Button(self, wx.ID_ANY, u"暂停")
@@ -136,7 +136,7 @@ class MyFrame1 (wx.Frame):
     def btnEndOnButtonClick(self, event):
         self.eve.clear()
         writeFile(regularizeData(self.ratio))
-        dlg = wx.MessageDialog(None, u"您的记录已保存！", u"感谢使用",
+        dlg = wx.MessageDialog(None, u"您的记录已保存", u"感谢使用",
                                wx.OK | wx.ICON_QUESTION)
         if dlg.ShowModal() == wx.ID_OK:
             self.Close(True)
