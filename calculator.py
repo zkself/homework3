@@ -72,11 +72,7 @@ class MyFrame1 (wx.Frame):
             gbSizer1.Add(self.creatvar['self.labCor' + str(i)],
                          pos=(i + 2, 7), flag=wx.ALIGN_CENTER_VERTICAL)
 
-<<<<<<< HEAD
-        self.btnNext = wx.Button(self, wx.ID_ANY, u"再来五题")
-=======
         self.btnNext = wx.Button(self, wx.ID_ANY, _(u"再来五题"))
->>>>>>> 0a3e118902b17a9e0a8b3d8c37ad21e854e729fa
         gbSizer1.Add(self.btnNext, span=(1, 1), pos=(9, 3))
 
         self.btnPause = wx.Button(self, wx.ID_ANY, _(u"暂停"))
@@ -163,11 +159,7 @@ class MyFrame1 (wx.Frame):
     def btnEndOnButtonClick(self, event):
         self.eve.clear()
         writeFile(regularizeData(self.ratio))
-<<<<<<< HEAD
-        dlg = wx.MessageDialog(None, u"您的记录已保存", u"感谢使用",
-=======
         dlg = wx.MessageDialog(None, _(u"您的记录已保存"), _(u"感谢使用"),
->>>>>>> 0a3e118902b17a9e0a8b3d8c37ad21e854e729fa
                                wx.OK | wx.ICON_QUESTION)
         if dlg.ShowModal() == wx.ID_OK:
             self.Close(True)
