@@ -7,3 +7,5 @@
 ## update-hyw 完善了显示题目并计算结果的部分，读写文件记录结果也添加了
 ## update-zk 增加了国际化功能，支持简体中文，繁体中文，English 三种语言
 ## update-hyw 增加了coverage代码分支覆盖率测试，在covhtml-index.html里可以看到结果
+# 总结
+## 我们完成了时钟功能、存储用户做题记录、多语言功能
