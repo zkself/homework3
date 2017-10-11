@@ -1,0 +1,15 @@
+missing module named resource - imported by posix, D:\thirdHomework\homework3\myexe\calculator.py
+missing module named posix - imported by os, D:\thirdHomework\homework3\myexe\calculator.py
+missing module named _dummy_threading - imported by dummy_threading, D:\thirdHomework\homework3\myexe\calculator.py
+missing module named os2 - imported by os, D:\thirdHomework\homework3\myexe\calculator.py
+missing module named _emx_link - imported by os, D:\thirdHomework\homework3\myexe\calculator.py
+missing module named ce - imported by os, D:\thirdHomework\homework3\myexe\calculator.py
+missing module named riscos - imported by os, D:\thirdHomework\homework3\myexe\calculator.py
+missing module named riscospath - imported by os, D:\thirdHomework\homework3\myexe\calculator.py
+missing module named riscosenviron - imported by os, D:\thirdHomework\homework3\myexe\calculator.py
+missing module named org - imported by pickle, D:\thirdHomework\homework3\myexe\calculator.py
+missing module named pwd - imported by posixpath, D:\thirdHomework\homework3\myexe\calculator.py
+missing module named readline - imported by cmd, pdb, D:\thirdHomework\homework3\myexe\calculator.py
+missing module named 'org.python' - imported by copy, D:\thirdHomework\homework3\myexe\calculator.py
+missing module named fcntl - imported by tempfile, subprocess, D:\thirdHomework\homework3\myexe\calculator.py
+missing module named Carbon - imported by wx.lib.colourutils
