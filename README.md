@@ -10,3 +10,5 @@
 ## update-zk 增加了单元测试文件 test_calculate.py
 # 总结
 ## 我们完成了时钟功能、存储用户做题记录、多语言功能
+
+##上传了exe文件 在myexe-dist下面
